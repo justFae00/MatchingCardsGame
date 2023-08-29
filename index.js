@@ -7,7 +7,7 @@ let cardsCount = 4;
 let chosenCards = [];
 let movesCounter = 0;
 let correctMovesCounter = 0;
-let currentLevelCounter = 1;
+let currentLevelCounter = 0;
 
 //audio file for flipping the cards
 const flipAudio = new Audio();
@@ -16,6 +16,9 @@ flipAudio.src = "assets/Card-flip-sound-effect.mp3";
 function startMatch() {
   cardsContainer.style.filter = "none";
   nextMatchButton.style.visibility = "hidden";
+
+  currentLevelCounter++;
+  currentLevel.innerHTML = "level: " + currentLevelCounter;
 
   placeCards();
 
@@ -135,8 +138,6 @@ function handleCards() {
           } else {
             nextMatchButton.style.visibility = "visible";
             cardsContainer.style.filter = "blur(5px)";
-            currentLevelCounter++;
-            currentLevel.innerHTML = "level: " + currentLevelCounter;
           }
         }, 1300);
       }
