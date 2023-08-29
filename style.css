@@ -29,11 +29,20 @@ body {
   scale: 110%;
 }
 
-#moves-count {
+#moves-count,
+#current-level {
   float: right;
-  margin-top: -1.2cm;
   margin-right: 5mm;
+}
+
+#moves-count {
+  margin-top: -1.2cm;
   font-size: 18px;
+}
+
+#current-level {
+  margin-top: -1.8cm;
+  font-size: 22px;
 }
 
 #page-title {
