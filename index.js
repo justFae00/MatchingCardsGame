@@ -1,21 +1,13 @@
 const cardsContainer = document.getElementsByClassName("cards-container")[0];
-
-//cards start from:
-let cardsCount = 4;
-
-//track chosen cards
-let chosenCards = [];
-
-//track moves
-let movesCounter = 0;
+const nextMatchButton = document.getElementById("next-match-button");
+const currentLevel = document.getElementById("current-level");
 const movesCount = document.getElementById("moves-count");
 
-//track correct guesses
+let cardsCount = 4;
+let chosenCards = [];
+let movesCounter = 0;
 let correctMovesCounter = 0;
-
-let currentLevel = 1;
-
-const nextMatchButton = document.getElementById("next-match-button");
+let currentLevelCounter = 1;
 
 //audio file for flipping the cards
 const flipAudio = new Audio();
@@ -77,7 +69,6 @@ function setCardNumber() {
   //assign a random number to each card
   for (let index = 0; index < cards.length; index++) {
     const cardBack = cards[index].querySelector(".card-back");
-    //cardBack.innerHTML = numbers[index];
     cards[index].flippable = true;
 
     const imgSrc = "assets/" + +numbers[index] + ".jpg";
@@ -139,12 +130,12 @@ function handleCards() {
       if (correctMovesCounter === Math.floor(cards.length / 2)) {
         setTimeout(() => {
           endMatchMsg();
-          if (currentLevel === 8) {
+          if (currentLevelCounter === 8) {
             alert("That's all! Thanks for playing!");
           } else {
             nextMatchButton.style.visibility = "visible";
             cardsContainer.style.filter = "blur(5px)";
-            currentLevel++;
+            currentLevelCounter++;
           }
         }, 1300);
       }
@@ -186,6 +177,8 @@ function clearAll() {
 
   movesCounter = 0;
   movesCount.innerHTML = "moves: " + movesCounter;
+
+  currentLevel.innerHTML = "level: " + currentLevelCounter;
 
   correctMovesCounter = 0;
 }
