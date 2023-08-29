@@ -136,6 +136,7 @@ function handleCards() {
             nextMatchButton.style.visibility = "visible";
             cardsContainer.style.filter = "blur(5px)";
             currentLevelCounter++;
+            currentLevel.innerHTML = "level: " + currentLevelCounter;
           }
         }, 1300);
       }
@@ -177,8 +178,6 @@ function clearAll() {
 
   movesCounter = 0;
   movesCount.innerHTML = "moves: " + movesCounter;
-
-  currentLevel.innerHTML = "level: " + currentLevelCounter;
 
   correctMovesCounter = 0;
 }
